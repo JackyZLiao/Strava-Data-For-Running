@@ -4,7 +4,6 @@ import requests
 import json
 import time
 
-
 def retrieve_run_data():
     # get tokens from file to connect to Strava
     with open('stravaTokens.json') as file:
