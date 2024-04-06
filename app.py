@@ -47,7 +47,6 @@ weekly_stats = weekly_stats.rename(columns=column_renaming)
 weekly_stats['Time'] = weekly_stats['Time'] // 60 
 weekly_stats['Cadence'] = weekly_stats['Cadence'].fillna(0).round()
 weekly_stats['Heart rate'] = weekly_stats['Heart rate'].fillna(0).round()
-print(weekly_stats)
 
 # select box to choose which stat to display
 stat_to_display = st.selectbox('To display', ('Distance', 'Time', 'Heart rate', 'Cadence'))
@@ -124,7 +123,7 @@ st.divider()
 
 # ********** Coach's Reccomendations section: using Google Gemini to provide analysis/recommendations **********
 st.write('## Coach\'s Reccomendations')
-st.markdown(':green[ ***AI Analysis of your current week\'s performance and future recommendations*** ]')
+st.markdown(':green[ ***AI Analysis of your current week\'sperformance compared to last week, and future recommendations*** ]')
 
 # Get the current week and the previous week as input for gemini model
 prev_week = week_dates[-2]
