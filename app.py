@@ -11,9 +11,9 @@ if 'csv_up_to_date' not in st.session_state:
     st.session_state.csv_up_to_date = True # Store the flag to indicate that CSV file has been updated in the session
 
 # **************************************** Intro Heading ****************************************
-st.set_page_config(page_title='Exclusive Run Club')
-st.title('Very Exclusive Run Club 🏃')
-st.markdown(':green[ ***An application to track your runs and get insight into your running statistics*** ]')
+st.set_page_config(page_title='PacePal')
+st.title('PacePal 🏃')
+st.markdown(':green[ ***An application to track your runs and get insight into your statistics using Strava data*** ]')
 st.divider()
 
 # **************************************** Weekly Kilometres Graph ****************************************
