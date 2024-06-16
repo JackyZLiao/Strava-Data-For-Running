@@ -38,7 +38,8 @@ def coach_reccomendation(runs, prev_week, current_week):
     and I had an average heart rate of {prev_avg_heartrate} BPM and an average cadence of {prev_avg_cadence} SPM. 
     This week, I ran {current_num_runs} times throughout the week. I ran a total of {current_total_distance} km 
     and I had an average heart rate of {current_avg_heartrate} BPM. and an average cadence of {current_avg_cadence} SPM. 
-    Have a positive and encouraging tone. Include the data provided in your response but keep it relatively concise.
+    Have a positive and encouraging tone. Include the data provided in your response but keep it relatively concise. Including a table
+    of data where necessary would be useful.
     """
     response = gemini.generate_content(query)
     return response.text

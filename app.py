@@ -82,7 +82,7 @@ st.divider()
 # **************************************** Weekly Run Statistics Section ****************************************
 st.write('## Weekly Run Statistics')
 st.markdown(':green[ ***A weekly overview of your runs. Select a week from the dropdown to preview that week\'s runs and stats.*** ]')
-select_week = st.selectbox('Select a week:', options=week_dates) # dropdown menu to select a particular week
+select_week = st.selectbox('Select a week:', options=list(reversed(week_dates))) # dropdown menu to select a particular week
 
 selected_week_distance = selected_week_time = selected_week_hr = selected_week_cadence = 0
 # get statistics for selected week
