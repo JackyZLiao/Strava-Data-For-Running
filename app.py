@@ -11,7 +11,7 @@ if 'csv_up_to_date' not in st.session_state:
     st.session_state.csv_up_to_date = True # Store the flag to indicate that CSV file has been updated in the session
 
 # **************************************** Intro Heading ****************************************
-st.set_page_config(page_title='PacePal')
+st.set_page_config(page_title='PacePal', layout='wide')
 st.title('PacePal 🏃')
 st.markdown(':green[ ***An application to track your runs and get insight into your statistics using Strava data*** ]')
 st.divider()
@@ -71,12 +71,12 @@ display = pd.DataFrame(weekly_individual_stat)
 colour_mapping = {'Distance' : '87CEEB', 'Heart rate': 'FF9999', 'Time': 'BDFCC9', 'Cadence': 'D0ACEA'}
 
 # Plotting weekly kilometres into a column graph and displaying it + customsing it
-column_graph = px.bar(display, x='Week', y='Statistic', title='Weekly Run Metrics Summary', height=600, width=800)
+column_graph = px.bar(display, x='Week', y='Statistic', title='Weekly Run Metrics Summary', height=600, width=1500)
 column_graph.update_traces(hovertemplate='%{y}', marker_color=f'#{colour_mapping[stat_to_display]}') # customising hover text and column colour
 column_graph.update_layout(title={'font': {'size': 24}}, xaxis={'title': {'text': 'Week', 'font': {'size': 18}}, 'tickfont': {'size': 14}}, yaxis={'title': {'text': f"{stat_to_display}", 'font': {'size': 18}}, 'tickfont': {'size': 14}})
 
 # displaying column graph
-st.plotly_chart(column_graph)
+st.plotly_chart(column_graph, use_container_width=True)
 st.divider()
 
 # **************************************** Weekly Run Statistics Section ****************************************
@@ -111,7 +111,7 @@ cadence_diff = f"{selected_week_cadence - prior_week_cadence} SPM" if prior_week
 
 # drop unnecessary columns
 selected_week_df = runs[runs['start_week'] == select_week].drop(columns=['start_week', 'time'])
-st.dataframe(selected_week_df, width=800)
+st.dataframe(selected_week_df, use_container_width=True)
 
 # displaying weekly statistics
 col1, col2, col3, col4 = st.columns(4)
@@ -134,5 +134,5 @@ st.divider()
 # **************************************** All Run Stats Section ****************************************
 all_runs = runs.drop(columns=['start_week', 'moving_time'])
 st.write('## All Run Statistics')
-st.markdown(':green[ ***A table of all your runs you have logged. Click on headers to sort your data in different ways.*** ]')
-st.dataframe(all_runs, width=800)
+st.markdown(':green[ ***A table of all your runs you have logged. Click on headers to sort your runs in different ways.*** ]')
+st.dataframe(all_runs, use_container_width=True)
